@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class pauseW : MonoBehaviour
+{
+    GameObject area;
+    Rigidbody2D a;
+    bool frezer = false;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (frezer) 
+        {
+            area.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY ;
+
+
+        }
+        
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Rigidbody2D>() != null)
+        {
+
+            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY ;
+            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Rigidbody2D>() != null)
+        {
+            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+}
