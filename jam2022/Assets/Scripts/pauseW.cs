@@ -30,6 +30,7 @@ public class pauseW : MonoBehaviour
         if (collision.GetComponent<Rigidbody2D>() != null)
         {
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            if(collision.gameObject.layer == LayerMask.NameToLayer("Player")) collision.GetComponent<Rigidbody2D>().constraints=RigidbodyConstraints2D.FreezeRotation;
             collision.GetComponent<Rigidbody2D>().WakeUp();
             //collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
