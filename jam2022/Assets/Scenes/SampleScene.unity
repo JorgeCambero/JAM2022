@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 332231934}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Groundcheck2
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -271,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 450410855}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: GroundCheck1
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -493,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 700297267}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: GroundCheck3
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 838273147}
   - component: {fileID: 838273146}
   - component: {fileID: 838273145}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Jugador2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 1255043106}
   - component: {fileID: 1255043105}
   - component: {fileID: 1255043104}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Jugador3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 1471779561}
   - component: {fileID: 1471779560}
   - component: {fileID: 1471779559}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Jugador1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1432,6 +1432,9 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
+  interact:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!4 &1819216940
 Transform:
   m_ObjectHideFlags: 0

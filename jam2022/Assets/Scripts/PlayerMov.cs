@@ -8,11 +8,12 @@ public class PlayerMov : MonoBehaviour
     public GameObject Player1; public GameObject Player2; public GameObject Player3;
     public Transform gCheck1; public Transform gCheck2; public Transform gCheck3;
     public LayerMask ground;
+    public LayerMask interact;
     //Fin lista de públicos
     List<Rigidbody2D> players = new List<Rigidbody2D>();
     List<Transform> groundCheck = new List<Transform>();
     int playerChosen = 1;
-    bool grounded;
+    bool grounded, landed;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,8 @@ public class PlayerMov : MonoBehaviour
     void FixedUpdate()
     {
         grounded = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.02f, ground);
+        landed = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.02f, interact);
+        Debug.Log(landed);
         Debug.Log(grounded);
         if (Input.GetKey("left") || Input.GetKey("a"))
         {
@@ -51,7 +54,7 @@ public class PlayerMov : MonoBehaviour
             players[playerChosen].AddForce(new Vector2(1000f * Time.deltaTime, 0));
             if (players[playerChosen].velocity.x >= 10) { players[playerChosen].velocity = new Vector2(10f, players[playerChosen].velocity.y); }
         }
-        if (Input.GetKey("w") && grounded == true)
+        if (Input.GetKey("w") && (grounded == true || landed == true))
         {
             players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x, 0);
             players[playerChosen].AddForce(new Vector2(0, 400), ForceMode2D.Force);
