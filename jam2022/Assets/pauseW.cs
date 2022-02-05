@@ -16,12 +16,6 @@ public class pauseW : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (frezer) 
-        {
-            area.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY ;
-
-
-        }
         
     }
     void OnTriggerEnter2D(Collider2D collision)
@@ -29,8 +23,8 @@ public class pauseW : MonoBehaviour
         if (collision.GetComponent<Rigidbody2D>() != null)
         {
 
-            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY ;
-            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            //collision.GetComponent<Rigidbody2D>().constraints = ;
         }
     }
 
@@ -39,7 +33,8 @@ public class pauseW : MonoBehaviour
         if (collision.GetComponent<Rigidbody2D>() != null)
         {
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            collision.GetComponent<Rigidbody2D>().WakeUp();
+            //collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 }
