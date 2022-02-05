@@ -1,7 +1,7 @@
 # JAM2022
 ## Base del juego
 	- Vista lateral
-	- Estética -> lo que os salga de la polla.
+	- Estética -> divina comedia de dante.
 	- Estilo visual ->  pixel art 7u7
 	- Mecanicas:
 		○ Moverse
