@@ -11,7 +11,7 @@ public class PlayerMov : MonoBehaviour
     //Fin lista de públicos
     List<Rigidbody2D> players = new List<Rigidbody2D>();
     List<Transform> groundCheck = new List<Transform>();
-    int playerChosen = 0;
+    int playerChosen = 1;
     bool grounded;
     // Start is called before the first frame update
     void Start()
