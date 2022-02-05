@@ -42,13 +42,13 @@ public class PlayerMov : MonoBehaviour
         Debug.Log(grounded);
         if (Input.GetKey("left") || Input.GetKey("a"))
         {
-            players[playerChosen].AddForce(new Vector2(-2000f * Time.deltaTime, 0));
+            players[playerChosen].AddForce(new Vector2(-1000f * Time.deltaTime, 0));
             if (players[playerChosen].velocity.x <= -10) { players[playerChosen].velocity = new Vector2(-10f, players[playerChosen].velocity.y); }
         }
         //right
         if (Input.GetKey("right") || Input.GetKey("d"))
         {
-            players[playerChosen].AddForce(new Vector2(2000f * Time.deltaTime, 0));
+            players[playerChosen].AddForce(new Vector2(1000f * Time.deltaTime, 0));
             if (players[playerChosen].velocity.x >= 10) { players[playerChosen].velocity = new Vector2(10f, players[playerChosen].velocity.y); }
         }
         if (Input.GetKey("w") && grounded == true)
