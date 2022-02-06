@@ -17,7 +17,8 @@ public class PlayerMov : MonoBehaviour
     List<Color> originalColors = new List<Color>();
     List<SpriteRenderer> renderers = new List<SpriteRenderer>();
     List<Transform> groundCheck = new List<Transform>();
-    int playerChosen = 1;
+    List<Animator> animations = new List<Animator>();
+    int playerChosen = 0;
     const float MAX_VELOCITY_X = 7.0F;
     const float DARKER = 0.5F;
     bool grounded, landed, grd;
@@ -27,12 +28,15 @@ public class PlayerMov : MonoBehaviour
         players.Add(Player1.GetComponent<Rigidbody2D>());
         renderers.Add(Player1.GetComponent<SpriteRenderer>());
         colors.Add(Player1.GetComponent<SpriteRenderer>().color);
+        animations.Add(Player1.GetComponent<Animator>());
         players.Add(Player2.GetComponent<Rigidbody2D>());
         renderers.Add(Player2.GetComponent<SpriteRenderer>());
         colors.Add(Player2.GetComponent<SpriteRenderer>().color);
+        animations.Add(Player2.GetComponent<Animator>());
         players.Add(Player3.GetComponent<Rigidbody2D>());
         renderers.Add(Player3.GetComponent<SpriteRenderer>());
         colors.Add(Player3.GetComponent<SpriteRenderer>().color);
+        animations.Add(Player3.GetComponent<Animator>());
 
         colors.ForEach((item) =>
         {
@@ -113,10 +117,14 @@ public class PlayerMov : MonoBehaviour
         //right
         if (Input.GetKey("right") || Input.GetKey("d"))
         {
-            renderers[playerChosen].flipX = false;
+            
             //players[playerChosen].drag = 0.2f;
             players[playerChosen].AddForce(new Vector2(1000f * Time.deltaTime, 0));
             if (players[playerChosen].velocity.x >= MAX_VELOCITY_X) { players[playerChosen].velocity = new Vector2(MAX_VELOCITY_X, players[playerChosen].velocity.y); }
+
+            //Animation zone
+            renderers[playerChosen].flipX = false;
+            
         }
         if (Input.GetKey("up") || Input.GetKey("w") && (grd))
         {
@@ -130,9 +138,15 @@ public class PlayerMov : MonoBehaviour
         {
             players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x * 0.95f, players[playerChosen].velocity.y);
         }
-        
 
-
+        //ANIMATION ZONE
+        for(int i = 1; i<3;i++){
+            animations[i].SetFloat("speed", Mathf.Abs(players[i].velocity.x));
+            if(!(players[i].velocity.y > -0.1 && players[i].velocity.y < 0.1)){
+                animations[i].SetBool("jump", true);
+            }else{
+                animations[i].SetBool("jump", false);    
+            }
+        }
     }
-
 }
