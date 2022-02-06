@@ -18,15 +18,15 @@ public class pauseW : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         
+        if(collision.GetComponent<Rigidbody2D>() != null){
         Rigidbody2D rbody = collision.GetComponent<Rigidbody2D>();
-        rbody.gravityScale = 0;
-        if (rbody != null)
-        {
+        
             collision.GetComponent<Rigidbody2D>().drag = 50;
             collision.GetComponent<Rigidbody2D>().angularDrag = 50;
             StartCoroutine(freeze(collision));
             //collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             //collision.GetComponent<Rigidbody2D>().constraints = ;
+        
         }
     }
     IEnumerator freeze(Collider2D collision)
