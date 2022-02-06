@@ -17,7 +17,10 @@ public class pauseW : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Rigidbody2D>() != null)
+        
+        Rigidbody2D rbody = collision.GetComponent<Rigidbody2D>();
+        rbody.gravityScale = 0;
+        if (rbody != null)
         {
             collision.GetComponent<Rigidbody2D>().drag = 50;
             collision.GetComponent<Rigidbody2D>().angularDrag = 50;
