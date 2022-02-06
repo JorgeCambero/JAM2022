@@ -9,11 +9,12 @@ public class PlayerMov : MonoBehaviour
     public Transform gCheck1; public Transform gCheck2; public Transform gCheck3;
     public LayerMask ground;
     public LayerMask interact;
-    //Fin lista de públicos
+    //Fin lista de pï¿½blicos
     List<Rigidbody2D> players = new List<Rigidbody2D>();
     List<Transform> groundCheck = new List<Transform>();
     int playerChosen = 1;
-    bool grounded, landed;
+    const float MAX_VELOCITY_X = 7;
+    bool grounded, landed, grd;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,27 +40,35 @@ public class PlayerMov : MonoBehaviour
     }
     void FixedUpdate()
     {
+        //players[playerChosen].drag = 10;
         grounded = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.02f, ground);
         landed = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.02f, interact);
+        grd = grounded || landed;
         Debug.Log(landed);
         Debug.Log(grounded);
         if (Input.GetKey("left") || Input.GetKey("a"))
         {
+            //players[playerChosen].drag = 0.2f;
             players[playerChosen].AddForce(new Vector2(-1000f * Time.deltaTime, 0));
-            if (players[playerChosen].velocity.x <= -10) { players[playerChosen].velocity = new Vector2(-10f, players[playerChosen].velocity.y); }
+            if (players[playerChosen].velocity.x <= -MAX_VELOCITY_X) { players[playerChosen].velocity = new Vector2(-MAX_VELOCITY_X, players[playerChosen].velocity.y); }
         }
         //right
         if (Input.GetKey("right") || Input.GetKey("d"))
         {
+            //players[playerChosen].drag = 0.2f;
             players[playerChosen].AddForce(new Vector2(1000f * Time.deltaTime, 0));
-            if (players[playerChosen].velocity.x >= 10) { players[playerChosen].velocity = new Vector2(10f, players[playerChosen].velocity.y); }
+            if (players[playerChosen].velocity.x >= MAX_VELOCITY_X) { players[playerChosen].velocity = new Vector2(MAX_VELOCITY_X, players[playerChosen].velocity.y); }
         }
-        if (Input.GetKey("w") && (grounded == true || landed == true))
+        if (Input.GetKey("up") ||Input.GetKey("w") && (grd))
         {
+            //players[playerChosen].drag = 0.2f;
             players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x, 0);
             players[playerChosen].AddForce(new Vector2(0, 400), ForceMode2D.Force);
             //if (rb.velocity.y >= 15) { rb.velocity = new Vector2(rb.velocity.y,15f); }
             //grounded = false;
+        }
+        if(!Input.anyKey || !grd){
+            players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x * 0.95f, players[playerChosen].velocity.y);
         }
     }
 
