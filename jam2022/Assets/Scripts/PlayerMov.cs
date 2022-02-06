@@ -18,8 +18,13 @@ public class PlayerMov : MonoBehaviour
     List<SpriteRenderer> renderers = new List<SpriteRenderer>();
     List<Transform> groundCheck = new List<Transform>();
     int playerChosen = 1;
+
+    const float MULT = 3.0F;
+    const float SPEED_X = 1000.0F*MULT;
+    const float SPEED_Y = 400.0F*MULT;
     const float MAX_VELOCITY_X = 7.0F;
-    const float DARKER = 0.5F;
+    const float MAX_VELOCITY_Y = 7.0F;
+    const float DARKER = 0.6F;
     bool grounded, landed, grd;
     // Start is called before the first frame update
     void Start()
@@ -107,7 +112,7 @@ public class PlayerMov : MonoBehaviour
         {
             renderers[playerChosen].flipX = true;
             //players[playerChosen].drag = 0.2f;
-            players[playerChosen].AddForce(new Vector2(-1000f * Time.deltaTime, 0));
+            players[playerChosen].AddForce(new Vector2(-SPEED_X * Time.deltaTime, 0));
             if (players[playerChosen].velocity.x <= -MAX_VELOCITY_X) { players[playerChosen].velocity = new Vector2(-MAX_VELOCITY_X, players[playerChosen].velocity.y); }
         }
         //right
@@ -115,14 +120,14 @@ public class PlayerMov : MonoBehaviour
         {
             renderers[playerChosen].flipX = false;
             //players[playerChosen].drag = 0.2f;
-            players[playerChosen].AddForce(new Vector2(1000f * Time.deltaTime, 0));
+            players[playerChosen].AddForce(new Vector2(SPEED_X * Time.deltaTime, 0));
             if (players[playerChosen].velocity.x >= MAX_VELOCITY_X) { players[playerChosen].velocity = new Vector2(MAX_VELOCITY_X, players[playerChosen].velocity.y); }
         }
         if (Input.GetKey("up") || Input.GetKey("w") && (grd))
         {
             //players[playerChosen].drag = 0.2f;
             players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x, 0);
-            players[playerChosen].AddForce(new Vector2(0, 400), ForceMode2D.Force);
+            players[playerChosen].AddForce(new Vector2(0, SPEED_Y), ForceMode2D.Force);
             //if (rb.velocity.y >= 15) { rb.velocity = new Vector2(rb.velocity.y,15f); }
             //grounded = false;
         }
