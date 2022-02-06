@@ -105,6 +105,7 @@ public class PlayerMov : MonoBehaviour
         Debug.Log(grounded);
         if (Input.GetKey("left") || Input.GetKey("a"))
         {
+            renderers[playerChosen].flipX = true;
             //players[playerChosen].drag = 0.2f;
             players[playerChosen].AddForce(new Vector2(-1000f * Time.deltaTime, 0));
             if (players[playerChosen].velocity.x <= -MAX_VELOCITY_X) { players[playerChosen].velocity = new Vector2(-MAX_VELOCITY_X, players[playerChosen].velocity.y); }
@@ -112,6 +113,7 @@ public class PlayerMov : MonoBehaviour
         //right
         if (Input.GetKey("right") || Input.GetKey("d"))
         {
+            renderers[playerChosen].flipX = false;
             //players[playerChosen].drag = 0.2f;
             players[playerChosen].AddForce(new Vector2(1000f * Time.deltaTime, 0));
             if (players[playerChosen].velocity.x >= MAX_VELOCITY_X) { players[playerChosen].velocity = new Vector2(MAX_VELOCITY_X, players[playerChosen].velocity.y); }
