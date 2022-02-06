@@ -18,12 +18,14 @@ public class PlayerMov : MonoBehaviour
     List<SpriteRenderer> renderers = new List<SpriteRenderer>();
     List<Transform> groundCheck = new List<Transform>();
 
+    const float grv = 2.4f;
+    const float DRAG_COEFFICIENT = 0.87f;
     const float MULT = 3.0F;
     const float SPEED_X = 1000.0F*MULT;
-    const float SPEED_Y = 400.0F*MULT;
+    const float SPEED_Y = 650.0F*MULT;
     List<Animator> animations = new List<Animator>();
     int playerChosen = 0;
-    const float MAX_VELOCITY_X = 7.0F;
+    const float MAX_VELOCITY_X = 3.5F;
     const float MAX_VELOCITY_Y = 7.0F;
     const float DARKER = 0.6F;
     bool grounded, landed, grd;
@@ -43,6 +45,11 @@ public class PlayerMov : MonoBehaviour
         colors.Add(Player3.GetComponent<SpriteRenderer>().color);
         animations.Add(Player3.GetComponent<Animator>());
 
+        players.ForEach((item) =>
+        {
+            item.gravityScale = grv;
+        });
+        
         colors.ForEach((item) =>
         {
             originalColors.Add(new Color(item.r, item.g, item.b, item.a));
@@ -139,10 +146,6 @@ public class PlayerMov : MonoBehaviour
             //if (rb.velocity.y >= 15) { rb.velocity = new Vector2(rb.velocity.y,15f); }
             //grounded = false;
         }
-        if (!Input.anyKey || !grd)
-        {
-            players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x * 0.95f, players[playerChosen].velocity.y);
-        }
 
         //ANIMATION ZONE
         for(int i = 1; i<3;i++){
@@ -152,6 +155,10 @@ public class PlayerMov : MonoBehaviour
             }else{
                 animations[i].SetBool("jump", false);    
             }
+        }
+
+        if(!Input.anyKey || !grd){
+            players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x * DRAG_COEFFICIENT, players[playerChosen].velocity.y);
         }
     }
 }
