@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMov : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public class PlayerMov : MonoBehaviour
         groundCheck.Add(gCheck2);
         groundCheck.Add(gCheck3);
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -35,6 +38,11 @@ public class PlayerMov : MonoBehaviour
             playerChosen++;
             if (playerChosen > 2) playerChosen = 0;
             Debug.Log(playerChosen);
+        }
+
+        if(Input.GetKeyUp("r"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
        
     }
@@ -70,6 +78,8 @@ public class PlayerMov : MonoBehaviour
         if(!Input.anyKey || !grd){
             players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x * 0.95f, players[playerChosen].velocity.y);
         }
+
+        
     }
 
 }
