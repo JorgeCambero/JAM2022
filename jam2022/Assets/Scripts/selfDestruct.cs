@@ -16,7 +16,7 @@ public class selfDestruct : MonoBehaviour
     {
 
         Debug.Log("rwdesdf");
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("DestruyeCajas"))
         {
             Instantiate(caja, spawnPos, Quaternion.identity);
             Destroy(gameObject);
