@@ -114,8 +114,8 @@ public class PlayerMov : MonoBehaviour
     void FixedUpdate()
     {
         //players[playerChosen].drag = 10;
-        grounded = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.05f, ground);
-        landed = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.05f, interact);
+        grounded = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.25f, ground);
+        landed = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.25f, interact);
         grd = grounded || landed;
         Debug.Log(landed);
         Debug.Log(grounded);
