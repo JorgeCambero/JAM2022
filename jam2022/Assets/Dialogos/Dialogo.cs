@@ -30,7 +30,7 @@ public class Dialogo : MonoBehaviour
 
 		animations.SetInteger("Personaje", personaje[lineaAnim]);
 
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) || Input.GetKeyUp("space"))
 		{
 			if (componenteTexto.text == lineas[i])
 			{

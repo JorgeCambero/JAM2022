@@ -91,6 +91,7 @@ public class AudioManager : MonoBehaviour
 			if (currentScene.name == "tuto1")
 			{
 				StopPlaying("Menu");
+				StopPlaying("Final");
 				Play("Tutorial");
 			}
 			else if (currentScene.name == "lvl3")
