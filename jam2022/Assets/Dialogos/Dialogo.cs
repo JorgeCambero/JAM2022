@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+using UnityEngine.SceneManagement;
+
 public class Dialogo : MonoBehaviour
 {
     public TextMeshProUGUI componenteTexto;
@@ -10,16 +12,16 @@ public class Dialogo : MonoBehaviour
     public float textSpeed;
 	public int[] personaje;
 	Animator animations = new Animator();
-
+	public GameObject fundidoNegro;
 	private int i;
 	private int lineaAnim = 0;
+	FundirNegro fn;
 	// Start is called before the first frame update
 	void Start()
 	{
 		animations = gameObject.GetComponent<Animator>();
 		componenteTexto.text = string.Empty;
 		inicioDial();
-
 	}
 
 	// Update is called once per frame
@@ -40,6 +42,12 @@ public class Dialogo : MonoBehaviour
 			{
 				StopAllCoroutines();
 				componenteTexto.text = lineas[i];
+			}
+
+			if (lineaAnim == 12)
+			{
+				fn = FindObjectOfType<FundirNegro>();
+				fn.fundir = true;
 			}
 		}
 	}

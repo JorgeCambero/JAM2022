@@ -442,8 +442,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: lineas.Array.data[2]
-      value: "Solo: \"Te acercaste a otros solo para aprovecharte y hacerles da\xF1o,
-        ahora todo RECHAZAR\xC1 TU PRESENCIA\""
+      value: "Solo: \"Te acercaste a otros solo para tu propio beneficio, ahora todo
+        RECHAZAR\xC1 TU PRESENCIA:\""
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: personaje.Array.size
