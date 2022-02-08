@@ -118,7 +118,7 @@ public class PlayerMov : MonoBehaviour
         landed = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.02f, interact);
         grd = grounded || landed;
         //Debug.Log(landed);
-        Debug.Log(grd + " AAAAAAA");
+        //Debug.Log(grd + " AAAAAAA");
         if (Input.GetKey("left") || Input.GetKey("a"))
         {
             renderers[playerChosen].flipX = true;

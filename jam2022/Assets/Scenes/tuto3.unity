@@ -4997,6 +4997,34 @@ PrefabInstance:
       propertyPath: lineas.Array.data[6]
       value: "(Estoy... \xBFmuerto?)"
       objectReference: {fileID: 0}
+    - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
+      propertyPath: personaje.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
+      propertyPath: personaje.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
+      propertyPath: personaje.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
+      propertyPath: personaje.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
+      propertyPath: personaje.Array.data[4]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
+      propertyPath: personaje.Array.data[5]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
+      propertyPath: personaje.Array.data[6]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 467248575194920448, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 8
