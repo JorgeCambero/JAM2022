@@ -24,7 +24,7 @@ public class PlayerMov : MonoBehaviour
     const float SPEED_X = 1000.0F * MULT;
     const float SPEED_Y = 550.0F * MULT;
     List<Animator> animations = new List<Animator>();
-    int playerChosen = 0;
+    public int playerChosen = 0;
     const float MAX_VELOCITY_X = 3.8F;
     const float MAX_VELOCITY_Y = 7.0F;
     const float DARKER = 0.6F;
