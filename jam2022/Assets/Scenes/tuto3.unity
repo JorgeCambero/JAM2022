@@ -4760,7 +4760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7179940434601743178, guid: 253bbe945fdc7d043b4cfc9d3df2355b, type: 3}
       propertyPath: escenaSiguiente
-      value: lvl2
+      value: lvl3
       objectReference: {fileID: 0}
     - target: {fileID: 7179940434601743179, guid: 253bbe945fdc7d043b4cfc9d3df2355b, type: 3}
       propertyPath: m_Name
@@ -5073,7 +5073,7 @@ PrefabInstance:
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: lineas.Array.data[5]
       value: 'Ah... Si, recuerdo: "Manipulaste a todos los que confiaron en ti, ahora
-        nada se vera influenciado a tu alrededor"'
+        nada se vera influenciado a tu alrededor."'
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: lineas.Array.data[6]
