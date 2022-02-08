@@ -15,7 +15,7 @@ public class selfDestruct : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
 
-        Debug.Log("rwdesdf");
+        //Debug.Log("rwdesdf");
         if (collision.gameObject.layer == LayerMask.NameToLayer("DestruyeCajas"))
         {
             Instantiate(caja, spawnPos, Quaternion.identity);

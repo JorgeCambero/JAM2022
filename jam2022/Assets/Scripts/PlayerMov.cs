@@ -30,6 +30,13 @@ public class PlayerMov : MonoBehaviour
     const float MAX_VELOCITY_Y = 7.0F;
     const float DARKER = 0.6F;
     bool grounded, landed, meow, grd;
+
+    //Audios
+
+    AudioManager am;
+    bool rojosonando = false;
+    bool azulsonando = false;
+    bool blancosonando = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +77,10 @@ public class PlayerMov : MonoBehaviour
         groundCheck.Add(gCheck1);
         groundCheck.Add(gCheck2);
         groundCheck.Add(gCheck3);
+
+        //Definición audioManager
+
+        am = FindObjectOfType<AudioManager>();
     }
 
 
@@ -104,6 +115,10 @@ public class PlayerMov : MonoBehaviour
 
                 renderers[i].color = colors[i];
             }
+
+            am.StopPlaying("PasoRojo");
+            am.StopPlaying("PasoBlanco");
+            am.StopPlaying("PasoAzul");
         }
 
         if (Input.GetKeyUp("r"))
@@ -138,8 +153,8 @@ public class PlayerMov : MonoBehaviour
 
             //Animation zone
             renderers[playerChosen].flipX = false;
-
         }
+    
         if ((Input.GetKey("up") || Input.GetKey("w")) && grd)
         {
             //players[playerChosen].drag = 0.2f;
@@ -162,11 +177,56 @@ public class PlayerMov : MonoBehaviour
                 animations[i].SetBool("jump", false);
             }
         }
+        //FIN ANIMATION ZONE 
 
+        //SOUND ZONE
+        if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("left") || Input.GetKey("a"))
+        {
+            if (playerChosen == 0 || grd)
+            {
+                if (playerChosen == 0 && rojosonando == false)
+                {
+                    am.Play("PasoRojo");
+                    rojosonando = true;
+                }
+                if (playerChosen == 1 && azulsonando == false)
+                {
+                    am.Play("PasoAzul");
+                    azulsonando = true;
+                }
+                if (playerChosen == 2 && blancosonando == false)
+                {
+                    am.Play("PasoBlanco");
+                    blancosonando = true;
+                }
+            }
+        }
+        for (int i= 0; i<3; i++){
+            if (Mathf.Abs(players[i].velocity.x) <= 0.1 || (grd == false && playerChosen!=0) )
+            {
+                if (i == 0)
+                {
+                    am.StopPlaying("PasoRojo");
+                    rojosonando = false;
+                }
+                if (i == 1)
+                {
+                    am.StopPlaying("PasoAzul");
+                    azulsonando = false;
+                }
+                if (i == 2)
+                {
+                    am.StopPlaying("PasoBlanco");
+                    blancosonando = false;
+                }
+            }
+        }
+        //FIN SOUND ZONE
         if (!Input.anyKey || !grd)
         {
             players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x * DRAG_COEFFICIENT, players[playerChosen].velocity.y);
         }
         //if((Input.GetKeyUp("up") || Input.GetKeyUp("w")) && players[playerChosen].velocity.y > 0 && !grd) players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x , players[playerChosen].velocity.y* DRAG_COEFFICIENT);
+        
     }
 }
