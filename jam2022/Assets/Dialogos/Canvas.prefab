@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 467248575163195713}
   - component: {fileID: 467248575163195712}
   - component: {fileID: 467248575163195718}
+  - component: {fileID: 7289899974645052977}
   m_Layer: 5
   m_Name: Dialogo
   m_TagString: Untagged
@@ -93,6 +94,25 @@ MonoBehaviour:
   lineas:
   - 
   textSpeed: 0.05
+--- !u!95 &7289899974645052977
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467248575163195714}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b8933c10aeb6e6c439c467af10cd56d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &467248575194920450
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 962.4, y: -165}
+  m_AnchoredPosition: {x: 1102, y: -147}
   m_SizeDelta: {x: 1175, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &467248575194920449
@@ -221,7 +241,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 40.46283, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
