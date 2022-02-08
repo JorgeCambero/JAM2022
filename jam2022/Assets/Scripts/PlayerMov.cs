@@ -21,11 +21,11 @@ public class PlayerMov : MonoBehaviour
     const float grv = 2.4f;
     const float DRAG_COEFFICIENT = 0.87f;
     const float MULT = 3.0F;
-    const float SPEED_X = 1000.0F*MULT;
-    const float SPEED_Y = 650.0F*MULT;
+    const float SPEED_X = 1000.0F * MULT;
+    const float SPEED_Y = 550.0F * MULT;
     List<Animator> animations = new List<Animator>();
     int playerChosen = 0;
-    const float MAX_VELOCITY_X = 3.5F;
+    const float MAX_VELOCITY_X = 3.8F;
     const float MAX_VELOCITY_Y = 7.0F;
     const float DARKER = 0.6F;
     bool grounded, landed, grd;
@@ -49,7 +49,7 @@ public class PlayerMov : MonoBehaviour
         {
             item.gravityScale = grv;
         });
-        
+
         colors.ForEach((item) =>
         {
             originalColors.Add(new Color(item.r, item.g, item.b, item.a));
@@ -62,7 +62,7 @@ public class PlayerMov : MonoBehaviour
                 colors[i] = originalColors[i];
             }
             else
-                colors[i] = originalColors[i]*DARKER;
+                colors[i] = originalColors[i] * DARKER;
 
             renderers[i].color = colors[i];
         }
@@ -99,7 +99,7 @@ public class PlayerMov : MonoBehaviour
                     colors[i] = originalColors[i];
                 }
                 else
-                    colors[i] = originalColors[i]*DARKER;
+                    colors[i] = originalColors[i] * DARKER;
 
                 renderers[i].color = colors[i];
             }
@@ -114,11 +114,11 @@ public class PlayerMov : MonoBehaviour
     void FixedUpdate()
     {
         //players[playerChosen].drag = 10;
-        grounded = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.25f, ground);
-        landed = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.25f, interact);
+        grounded = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.02f, ground);
+        landed = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.02f, interact);
         grd = grounded || landed;
-        Debug.Log(landed);
-        Debug.Log(grounded);
+        //Debug.Log(landed);
+        Debug.Log(grd + " AAAAAAA");
         if (Input.GetKey("left") || Input.GetKey("a"))
         {
             renderers[playerChosen].flipX = true;
@@ -129,16 +129,16 @@ public class PlayerMov : MonoBehaviour
         //right
         if (Input.GetKey("right") || Input.GetKey("d"))
         {
-            
+
             //players[playerChosen].drag = 0.2f;
             players[playerChosen].AddForce(new Vector2(SPEED_X * Time.deltaTime, 0));
             if (players[playerChosen].velocity.x >= MAX_VELOCITY_X) { players[playerChosen].velocity = new Vector2(MAX_VELOCITY_X, players[playerChosen].velocity.y); }
 
             //Animation zone
             renderers[playerChosen].flipX = false;
-            
+
         }
-        if (Input.GetKey("up") || Input.GetKey("w") && (grd))
+        if ((Input.GetKey("up") || Input.GetKey("w")) && grd)
         {
             //players[playerChosen].drag = 0.2f;
             players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x, 0);
@@ -148,17 +148,23 @@ public class PlayerMov : MonoBehaviour
         }
 
         //ANIMATION ZONE
-        for(int i = 1; i<3;i++){
+        for (int i = 1; i < 3; i++)
+        {
             animations[i].SetFloat("speed", Mathf.Abs(players[i].velocity.x));
-            if(!(players[i].velocity.y > -0.1 && players[i].velocity.y < 0.1)){
+            if (!(players[i].velocity.y > -0.1 && players[i].velocity.y < 0.1))
+            {
                 animations[i].SetBool("jump", true);
-            }else{
-                animations[i].SetBool("jump", false);    
+            }
+            else
+            {
+                animations[i].SetBool("jump", false);
             }
         }
 
-        if(!Input.anyKey || !grd){
+        if (!Input.anyKey || !grd)
+        {
             players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x * DRAG_COEFFICIENT, players[playerChosen].velocity.y);
         }
+        //if((Input.GetKeyUp("up") || Input.GetKeyUp("w")) && players[playerChosen].velocity.y > 0 && !grd) players[playerChosen].velocity = new Vector2(players[playerChosen].velocity.x , players[playerChosen].velocity.y* DRAG_COEFFICIENT);
     }
 }
