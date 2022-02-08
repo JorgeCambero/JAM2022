@@ -39,7 +39,7 @@ public class pauseW : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponent<Rigidbody2D>() != null)
-        {
+        {           
             iunfreeze(collision);
             StartCoroutine(unfreeze(collision));
             //collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
