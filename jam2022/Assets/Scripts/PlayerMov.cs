@@ -11,6 +11,7 @@ public class PlayerMov : MonoBehaviour
     public Transform gCheck1; public Transform gCheck2; public Transform gCheck3;
     public LayerMask ground;
     public LayerMask interact;
+    public LayerMask MovPlat;
     //Fin lista de publicos
     List<Rigidbody2D> players = new List<Rigidbody2D>();
     List<Color> colors = new List<Color>();
@@ -28,7 +29,7 @@ public class PlayerMov : MonoBehaviour
     const float MAX_VELOCITY_X = 3.8F;
     const float MAX_VELOCITY_Y = 7.0F;
     const float DARKER = 0.6F;
-    bool grounded, landed, grd;
+    bool grounded, landed, meow, grd;
     // Start is called before the first frame update
     void Start()
     {
@@ -116,7 +117,8 @@ public class PlayerMov : MonoBehaviour
         //players[playerChosen].drag = 10;
         grounded = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.02f, ground);
         landed = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.02f, interact);
-        grd = grounded || landed;
+        meow = Physics2D.OverlapCircle(groundCheck[playerChosen].position, 0.02f, MovPlat);
+        grd = grounded || landed || meow;
         //Debug.Log(landed);
         //Debug.Log(grd + " AAAAAAA");
         if (Input.GetKey("left") || Input.GetKey("a"))
