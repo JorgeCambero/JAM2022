@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escenaSiguiente: tuto1
-  activo: 0
+  justOnce: 0
+  activable: 0
+  placa: {fileID: 0}
 --- !u!61 &7179940434601743175
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -109,7 +111,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.045927357, y: -0.22123548}
