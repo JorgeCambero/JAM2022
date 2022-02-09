@@ -437,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: lineas.Array.data[1]
-      value: "No era lo que pretend\xEDa, pero da igual, ayudame a escapar, paso
+      value: "No era lo que pretend\xEDa, pero da igual, ay\xFAdame a escapar, paso
         de seguir aqu\xED, \xBFrecuerdas algo?"
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}

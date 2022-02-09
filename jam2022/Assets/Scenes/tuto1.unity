@@ -642,7 +642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: lineas.Array.data[3]
-      value: Ahora ATRAERAS todo para no volver a pasar desapercibido."
+      value: "Ahora ATRAER\xC1S todo para no volver a pasar desapercibido.\""
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: personaje.Array.size

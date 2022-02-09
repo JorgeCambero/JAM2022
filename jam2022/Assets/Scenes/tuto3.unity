@@ -5052,11 +5052,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: lineas.Array.data[0]
-      value: "\xBFDonde... estoy...?"
+      value: "\xBFD\xF3nde... estoy...?"
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: lineas.Array.data[1]
-      value: "Parece que uno mas se une al grupo, \xBFnos ayudas a escapar?"
+      value: "Parece que uno m\xE1s se une al grupo, \xBFnos ayudas a escapar?"
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: lineas.Array.data[2]
@@ -5064,7 +5064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: lineas.Array.data[3]
-      value: "Venga, no querras quedarte ahi. Por cierto, \xBFrecuerdas algo?"
+      value: "Venga, no querr\xE1s quedarte ah\xED. Por cierto, \xBFrecuerdas algo?"
       objectReference: {fileID: 0}
     - target: {fileID: 467248575163195718, guid: 6ca3a89c7bc6b124499d708eaf6ce4d4, type: 3}
       propertyPath: lineas.Array.data[4]
